@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 1,
+    count: 0,
     tags: ["tag1", "tag2", "tag3"],
   };
 
@@ -11,8 +11,13 @@ class Counter extends Component {
     fontWeight: "bold",
   };
 
-  handleIncrement = () => {
+  handleIncrement = (product) => {
+    console.log(product);
     this.setState({ count: this.state.count + 1 });
+  };
+
+  doHandleIncrement = () => {
+    this.handleIncrement({ id: 1 });
   };
 
   render() {
@@ -27,11 +32,11 @@ class Counter extends Component {
         >
           Increment
         </button>
-        <ul>
+        {/* <ul>
           {this.state.tags.map((tag) => (
             <li key={tag}>{tag}</li> // Dynamic list rendering
           ))}
-        </ul>
+        </ul> */}
       </div>
     );
   }
