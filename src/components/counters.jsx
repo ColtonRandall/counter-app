@@ -21,7 +21,7 @@ class Counters extends Component {
     counters[index].value++; // increment by 1
     this.setState({ counters });
   };
-
+  
   handleDelete = (counterId) => {
     // Using filter to get all counters except one with given id
     const counters = this.state.counters.filter(
