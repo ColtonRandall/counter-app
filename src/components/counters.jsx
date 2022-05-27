@@ -11,6 +11,17 @@ class Counters extends Component {
     ],
   };
 
+  // set to function that takes a parameter 'counter'
+  // to update the state, create a new counters array and pass to setState() for React to update dynamically.
+  handleIncrement = (counter) => {
+    console.log(counter);
+    const counters = [...this.state.counters]; // cloning array using spread operator
+    const index = counters.indexOf(counter); // must find the index of button being pushed since we only want to change this value
+    counters[index] = { ...counter }; // replace values
+    counters[index].value++; // increment by 1
+    this.setState({ counters });
+  };
+
   handleDelete = (counterId) => {
     // Using filter to get all counters except one with given id
     const counters = this.state.counters.filter(
@@ -46,9 +57,9 @@ class Counters extends Component {
               {this.state.counters.map((counter) => (
                 <Counter
                   key={counter.id}
-                  value={counter.value}
-                  id={counter.id}
+                  counter={counter}
                   onDelete={this.handleDelete}
+                  onIncrement={this.handleIncrement}
                 />
               ))}
             </div>
