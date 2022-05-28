@@ -18,9 +18,20 @@ class Counter extends Component {
   render() {
     return (
       <div>
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger btn-sm m-2 bi bi-trash"
+        >
+          Remove
+        </button>
         <span style={this.styles} className={this.getBadgeClasses()}>
           {this.formatCount()}
         </span>
+
+        <span style={this.styles} className={"badge m-2 badge-success"}>
+          {this.props.foodItem}
+        </span>
+
         <button
           onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm"
@@ -33,13 +44,6 @@ class Counter extends Component {
           className="btn btn-secondary btn-sm m-2"
         >
           -
-        </button>
-
-        <button
-          onClick={() => this.props.onDelete(this.props.counter.id)}
-          className="btn btn-danger btn-sm m-2"
-        >
-          Delete
         </button>
       </div>
     );

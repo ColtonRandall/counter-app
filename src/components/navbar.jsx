@@ -6,11 +6,11 @@ import React, { Component } from "react";
 
 const NavBar = (props) => {
   return (
-    <nav className="navbar bg-light">
+    <nav className="navbar navbar-dark bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           Shopping Cart{" "}
-          <span className="badge badge-pill badge-secondary">
+          <span className="badge badge-pill badge-success">
             {props.totalCounters}
           </span>
         </a>

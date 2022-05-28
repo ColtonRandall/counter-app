@@ -6,10 +6,10 @@ import Counters from "./components/counters";
 class App extends Component {
   state = {
     counters: [
-      { id: 1, value: 0 },
-      { id: 2, value: 0 },
-      { id: 3, value: 0 },
-      { id: 4, value: 0 },
+      { foodItem: "Bananas", id: 1, value: 0 },
+      { foodItem: "Milk", id: 2, value: 0 },
+      { foodItem: "Eggs", id: 3, value: 0 },
+      { foodItem: "Bread", id: 4, value: 0 },
     ],
   };
 
@@ -45,11 +45,12 @@ class App extends Component {
 
   handleReset = () => {
     // Use map method to get each counter and reset its value
-    const counters = this.state.counters.map((eachCounter) => {
-      eachCounter.value = 0;
-      return eachCounter;
-    });
-    this.setState({ counters });
+    // const counters = this.state.counters.map((eachCounter) => {
+    //   eachCounter.value = 0;
+    //   return eachCounter;
+    // });
+    // this.setState({ counters });
+    window.location.reload(false);
   };
   render() {
     return (
