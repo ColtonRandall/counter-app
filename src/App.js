@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import "./App.css";
 import NavBar from "./components/navbar";
 import Counters from "./components/counters";
+import Value from "./components/value";
 
 class App extends Component {
   state = {
     counters: [
-      { foodItem: "Bananas", id: 1, value: 0 },
-      { foodItem: "Milk", id: 2, value: 0 },
-      { foodItem: "Eggs", id: 3, value: 0 },
-      { foodItem: "Bread", id: 4, value: 0 },
+      { price: 2.8, foodItem: "Bananas", id: 1, value: 0 },
+      { price: 3.5, foodItem: "Milk", id: 2, value: 0 },
+      { price: 6.3, foodItem: "Eggs", id: 3, value: 0 },
+      { price: 4.6, foodItem: "Bread", id: 4, value: 0 },
     ],
   };
 
@@ -66,8 +67,11 @@ class App extends Component {
             onDelete={this.handleDelete}
             onIncrement={this.handleIncrement}
             onDecrement={this.handleDecrement}
+            price={this.state.price}
           />
         </main>
+        {/* TODO */}
+        <Value totalPrice={this.state.counters.price} />
       </React.Fragment>
     );
   }
