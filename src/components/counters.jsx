@@ -33,6 +33,11 @@ class Counters extends Component {
             </div>
           </div>
         </div>
+        {/* <div className=" d-flex aligns-items-center justify-content-center m-2">
+          <span style={this.styles} className={"badge m-2 badge-success"}>
+            $ {this}
+          </span>
+        </div> */}
       </div>
     );
   }
