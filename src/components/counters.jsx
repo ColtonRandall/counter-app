@@ -23,6 +23,7 @@ class Counters extends Component {
                 <Counter
                   key={counter.id}
                   foodItem={counter.foodItem}
+                  price={counter.price}
                   counter={counter}
                   onDelete={onDelete}
                   onIncrement={onIncrement}
