@@ -9,7 +9,7 @@ const NavBar = (props) => {
     <nav className="navbar bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          Navbar{" "}
+          Shopping Cart{" "}
           <span className="badge badge-pill badge-secondary">
             {props.totalCounters}
           </span>

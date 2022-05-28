@@ -6,7 +6,7 @@ import Counters from "./components/counters";
 class App extends Component {
   state = {
     counters: [
-      { id: 1, value: 4 },
+      { id: 1, value: 0 },
       { id: 2, value: 0 },
       { id: 3, value: 0 },
       { id: 4, value: 0 },
@@ -16,11 +16,21 @@ class App extends Component {
   // set to function that takes a parameter 'counter'
   // to update the state, create a new counters array and pass to setState() for React to update dynamically.
   handleIncrement = (counter) => {
-    console.log(counter);
     const counters = [...this.state.counters]; // cloning array using spread operator
     const index = counters.indexOf(counter); // must find the index of button being pushed since we only want to change this value
     counters[index] = { ...counter }; // replace values
     counters[index].value++; // increment by 1
+    this.setState({ counters });
+  };
+
+  handleDecrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    if (counters[index].value <= 0) {
+      counters[index] = 0;
+    }
+    counters[index].value--;
     this.setState({ counters });
   };
 
@@ -46,9 +56,7 @@ class App extends Component {
       // Navbar to display all values greater than zero
       <React.Fragment>
         <NavBar
-          totalCounters={
-            this.state.counters.filter((num) => num.value > 0).length
-          }
+          totalCounters={this.state.counters.filter((num) => num.value).length}
         />
         <main className="container">
           <Counters
@@ -56,6 +64,7 @@ class App extends Component {
             onReset={this.handleReset}
             onDelete={this.handleDelete}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
           />
         </main>
       </React.Fragment>
